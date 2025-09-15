@@ -4,14 +4,14 @@ import TodoList from "../components/TodoList";
 import TodoSummary from "../components/TodoSummary";
 import useTodos from "../hooks/useTodos";
 import { Moon, SunMoon } from "lucide-react";
+import { Todo } from "../types/todo";
 
-// type SetupItemProps = {
-//     dummy: string;
-//     title: string;
-//     head: string;
-// };
+type SetupItemProps = {
+    dummy: Todo[];
+    title: string;
+};
 
-export default function NewSetup( { dummy, title } ){
+export default function NewSetup( { dummy, title }: SetupItemProps ){
 
       const {
         todos,
@@ -19,7 +19,7 @@ export default function NewSetup( { dummy, title } ){
         setTodoCompleted,
         deleteTodo,
         deleteAllCompletedTodos
-      } = useTodos(dummy);
+      } = useTodos(dummy);      
     
       const [isDarkMode, setIsDarkMode] = useState(false);
     
